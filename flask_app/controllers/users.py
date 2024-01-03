@@ -1,4 +1,4 @@
-from flask import render_template,redirect,session,request, flash
+from flask import render_template,redirect,session,request, flash, url_for
 from flask_app import app
 from flask_app.models.user import User
 from flask_app.models.craft import Craft
@@ -65,6 +65,15 @@ def dashboard():
 def logout():
     session.clear()
     return redirect('/')
+
+@app.route('/about')
+def about():
+    return render_template("about.html")
+
+@app.route('/servicealerts')
+def servicealerts():
+    return render_template("alerts.html")
+
 
 
 # @app.route('/success')
